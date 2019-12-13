@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">shave</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Regıster</string>
+    <string name="login">Logın</string>
+</resources>

@@ -2,7 +2,6 @@ package com.example.shave
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -48,7 +47,7 @@ class RegisterActivity : AppCompatActivity() {
             Log.d("RegisterActivity","photo was selected")
             selectedPhotoUri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver,selectedPhotoUri)
-            selectphoto_imageview_register.setImageBitmap(bitmap)
+            selectphoto_imageview_user.setImageBitmap(bitmap)
             select_photo_button.alpha = 0f
             //val bitmapDrawable = BitmapDrawable(bitmap)
             //select_photo_button.setBackgroundDrawable(bitmapDrawable)

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light">
+    android:background="@android:color/holo_blue_dark">
 
     <EditText
         android:id="@+id/email_login"
@@ -30,9 +30,9 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_corner_background"
         android:ems="10"
-        android:paddingLeft="15dp"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="@+id/email_login"
         app:layout_constraintStart_toStartOf="@+id/email_login"
         app:layout_constraintTop_toBottomOf="@+id/email_login" />
@@ -42,10 +42,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/login"
         android:background="@drawable/rounded_corner_background_blue"
-        android:textStyle="bold"
+        android:text="@string/login"
         android:textColor="@android:color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/password_login"
         app:layout_constraintStart_toStartOf="@+id/password_login"
         app:layout_constraintTop_toBottomOf="@+id/password_login" />

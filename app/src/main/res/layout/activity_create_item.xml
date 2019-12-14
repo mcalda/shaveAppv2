@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark">
+
+    <EditText
+        android:id="@+id/item_create_name"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/rounded_corner_background"
+        android:paddingLeft="20dp"
+        android:ems="10"
+        android:hint="Item Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/item_creare_brand"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_corner_background"
+        android:paddingLeft="20dp"
+        android:ems="10"
+        android:hint="Item Brand"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/item_create_name"
+        app:layout_constraintStart_toStartOf="@+id/item_create_name"
+        app:layout_constraintTop_toBottomOf="@+id/item_create_name" />
+
+    <EditText
+        android:id="@+id/item_create_rating"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_corner_background"
+        android:paddingLeft="20dp"
+        android:ems="10"
+        android:hint="Item Rating"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/item_creare_brand"
+        app:layout_constraintStart_toStartOf="@+id/item_creare_brand"
+        app:layout_constraintTop_toBottomOf="@+id/item_creare_brand" />
+
+    <EditText
+        android:id="@+id/item_create_count"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_corner_background"
+        android:paddingLeft="20dp"
+        android:ems="10"
+        android:hint="Item Count"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/item_create_rating"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/item_create_rating"
+        app:layout_constraintTop_toBottomOf="@+id/item_create_rating" />
+
+    <EditText
+        android:id="@+id/item_create_comments"
+        android:layout_width="0dp"
+        android:layout_height="188dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_corner_background"
+        android:paddingLeft="20dp"
+        android:ems="10"
+        android:hint="Item Comments"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/item_create_count"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/item_create_count"
+        app:layout_constraintTop_toBottomOf="@+id/item_create_count" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:text="Create"
+        app:layout_constraintEnd_toEndOf="@+id/item_create_comments"
+        app:layout_constraintStart_toStartOf="@+id/item_create_comments"
+        app:layout_constraintTop_toBottomOf="@+id/item_create_comments" />
+</androidx.constraintlayout.widget.ConstraintLayout>

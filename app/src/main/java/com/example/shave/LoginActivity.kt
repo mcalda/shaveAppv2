@@ -1,5 +1,6 @@
 package com.example.shave
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -28,14 +29,16 @@ class LoginActivity :AppCompatActivity() {
 
 
             Log.d("LoginActivity","Attempt to login with email and password")
-
+            auth = FirebaseAuth.getInstance()
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("LoginActivity", "signInWithEmail:success")
                         val user = auth.currentUser
-                        //updateUI(user)
+                        val intent = Intent(this,UserActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(intent)
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("LoginActivity", "signInWithEmail:failure", task.exception)

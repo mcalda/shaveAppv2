@@ -80,7 +80,9 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(baseContext, "You registered successfully!",
                         Toast.LENGTH_SHORT).show()
                     val user = auth.currentUser
-                    //updateUI(user)
+                    val intent = Intent(this,LoginActivity::class.java)
+                    startActivity(intent)// send it to login page
+
                     uploadImageToFirebaseStorage()
                 } else {
                     // If sign in fails, display a message to the user.
@@ -120,4 +122,6 @@ class RegisterActivity : AppCompatActivity() {
 
 }
 
-class User (val uid:String, val username:String, val profileImageUrl: String)
+class User (val uid:String, val username:String, val profileImageUrl: String){
+    constructor(): this("","","")
+}

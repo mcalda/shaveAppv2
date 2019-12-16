@@ -38,7 +38,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.1.0'
     implementation 'de.hdodenhof:circleimageview:3.0.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
-
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation "com.xwray:groupie:2.7.0"
 }
 
 apply plugin: 'com.google.gms.google-services'

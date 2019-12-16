@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_dark"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".CreateCategoryActivity">
 
     <EditText
         android:id="@+id/name_create_category"
@@ -70,4 +71,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/selectphoto_category"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="@+id/photo_button_category"
+        app:layout_constraintEnd_toEndOf="@+id/photo_button_category"
+        app:layout_constraintStart_toStartOf="@+id/photo_button_category"
+        app:layout_constraintTop_toTopOf="@+id/photo_button_category" />
 </androidx.constraintlayout.widget.ConstraintLayout>

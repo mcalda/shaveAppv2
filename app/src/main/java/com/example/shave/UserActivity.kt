@@ -1,7 +1,6 @@
 package com.example.shave
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,8 +11,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_user2.*
-import java.io.InputStream
-import java.net.URL
 
 class UserActivity() : AppCompatActivity() {
 
@@ -56,7 +53,8 @@ class UserActivity() : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
 
                 val user = p0.getValue(User::class.java) ?: User()
-                Picasso.get().load(user.profileImageUrl).into(selectphoto_imageview_user)
+                message_text_touser.text = "Perfect day to shave, ${user.username}!"
+                Picasso.get().load(user.profileImageUrl).into(item_photo_row)
                 Log.d("UserActivity","image is loaded"+user.profileImageUrl)
             }
 

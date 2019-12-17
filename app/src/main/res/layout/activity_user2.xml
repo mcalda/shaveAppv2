@@ -7,7 +7,7 @@
     android:background="@android:color/holo_blue_dark">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/selectphoto_imageview_user"
+        android:id="@+id/item_photo_row"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="48dp"
@@ -30,7 +30,7 @@
         app:layout_constraintBottom_toTopOf="@id/newcategory_button_user"
         app:layout_constraintEnd_toStartOf="@id/categories_button_user"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectphoto_imageview_user" />
+        app:layout_constraintTop_toBottomOf="@+id/item_photo_row" />
 
     <Button
         android:id="@+id/logout_button_user"
@@ -65,7 +65,7 @@
         app:layout_constraintBottom_toTopOf="@id/logout_button_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mysotd_button_user"
-        app:layout_constraintTop_toBottomOf="@+id/selectphoto_imageview_user" />
+        app:layout_constraintTop_toBottomOf="@+id/item_photo_row" />
 
     <Button
         android:id="@+id/newcategory_button_user"
@@ -90,5 +90,18 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp" />
+
+    <TextView
+        android:id="@+id/message_text_touser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/mysotd_button_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_photo_row" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/rounded_corner_background"
         android:ems="10"
@@ -19,77 +19,106 @@
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/photo_button_item" />
-
-    <EditText
-        android:id="@+id/item_create_rating"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_corner_background"
-        android:ems="10"
-        android:hint="Item Rating"
-        android:inputType="textPersonName"
-        android:paddingLeft="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/item_create_name"
-        app:layout_constraintStart_toStartOf="@+id/item_create_name"
-        app:layout_constraintTop_toBottomOf="@+id/item_create_name" />
-
-    <EditText
-        android:id="@+id/item_create_count"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_corner_background"
-        android:ems="10"
-        android:hint="Item Count"
-        android:inputType="textPersonName"
-        android:paddingLeft="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/item_create_rating"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/item_create_rating"
-        app:layout_constraintTop_toBottomOf="@+id/item_create_rating" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_item_rating_bar"
+        app:layout_constraintBottom_toTopOf="@id/createitem_numberofitems_text"/>
 
     <EditText
         android:id="@+id/item_create_comments"
         android:layout_width="0dp"
-        android:layout_height="188dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/rounded_corner_background"
         android:ems="10"
         android:hint="Item Comments"
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/item_create_count"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/item_create_count"
-        app:layout_constraintTop_toBottomOf="@+id/item_create_count" />
+        app:layout_constraintBottom_toTopOf="@id/createitems_button"
+        app:layout_constraintEnd_toEndOf="@+id/item_create_name"
+        app:layout_constraintStart_toStartOf="@+id/item_create_name"
+        app:layout_constraintTop_toBottomOf="@+id/createitem_numberofitems_text" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/createitems_button"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="32dp"
-        android:text="Create"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/rounded_corner_background_blue"
+        android:text="Create"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/item_create_comments"
-        app:layout_constraintStart_toStartOf="@+id/item_create_comments"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_create_comments" />
 
     <Button
         android:id="@+id/photo_button_item"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/circular_photo"
         android:text="ADD PHOTO"
         android:textColor="@android:color/white"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/create_item_rating_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/create_item_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/item_create_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/create_item_ratingbar_text"
+        app:layout_constraintTop_toBottomOf="@+id/photo_button_item" />
+
+    <TextView
+        android:id="@+id/create_item_ratingbar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Rating:"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/create_item_rating_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/create_item_rating_bar"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <EditText
+        android:id="@+id/createitem_numberofitems_text"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/rounded_corner_background"
+        android:ems="10"
+        android:hint=" How many?"
+        android:paddingLeft="20dp"
+        android:inputType="numberSigned"
+        app:layout_constraintBottom_toTopOf="@+id/item_create_comments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_create_name" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/selectphoto_item"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="@+id/photo_button_item"
+        app:layout_constraintEnd_toEndOf="@+id/photo_button_item"
+        app:layout_constraintStart_toStartOf="@+id/photo_button_item"
+        app:layout_constraintTop_toTopOf="@+id/photo_button_item" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

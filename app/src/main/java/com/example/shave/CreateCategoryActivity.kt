@@ -40,7 +40,6 @@ class CreateCategoryActivity:AppCompatActivity(){
 
 
     var selectedPhotoUri: Uri? = null
-    var checkIfSameCategory = false
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode==0 && resultCode == Activity.RESULT_OK&& data!= null) {

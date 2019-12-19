@@ -34,6 +34,7 @@ class CreateItemActivity:AppCompatActivity() {
 
         createitems_button.setOnClickListener {
             uploadImageThenSaveCategory(category_name?:"")
+            finish()
         }
     }
 
@@ -114,7 +115,6 @@ class CreateItemActivity:AppCompatActivity() {
                 }
             })
 
-            finish()
         }
 
     }

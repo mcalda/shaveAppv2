@@ -54,7 +54,7 @@ class UserActivity() : AppCompatActivity() {
 
                 val user = p0.getValue(User::class.java) ?: User()
                 message_text_touser.text = "Perfect day to shave, ${user.username}!"
-                Picasso.get().load(user.profileImageUrl).into(item_photo_row)
+                Picasso.get().load(user.profileImageUrl).into(item_info_photo)
                 Log.d("UserActivity","image is loaded"+user.profileImageUrl)
             }
 

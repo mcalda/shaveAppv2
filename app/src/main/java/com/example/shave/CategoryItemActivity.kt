@@ -41,6 +41,7 @@ class CategoryItemActivity() : AppCompatActivity() {
         }
     }
 
+
     private fun fetchItems(categoryName:String){
         val uid = FirebaseAuth.getInstance().uid ?: ""
 
@@ -63,7 +64,12 @@ class CategoryItemActivity() : AppCompatActivity() {
                     }
                 }
                 recyclerview_category_item.adapter = adapter
-                //adapter.setonclicklistener yapıp item bilgi sayfasına yönlendir
+                adapter.setOnItemClickListener { item, view ->
+                    val shaveItem = item as ShavingItem
+                    val intent = Intent(view.context,ShaveItemInfoActivity::class.java)
+                    intent.putExtra(ITEM_KEY, "$categoryName/items/${shaveItem.item.name}")
+                    startActivity(intent)
+                }
             }
 
             override fun onCancelled(p0: DatabaseError) {
@@ -77,7 +83,7 @@ class CategoryItemActivity() : AppCompatActivity() {
 class ShavingItem(val item:CreateItem):Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.item_name_row.text = item.name
-        Picasso.get().load(item.itemPhotoUrl).into(viewHolder.itemView.item_photo_row)
+        Picasso.get().load(item.itemPhotoUrl).into(viewHolder.itemView.item_info_photo)
     }
 
     override fun getLayout(): Int {

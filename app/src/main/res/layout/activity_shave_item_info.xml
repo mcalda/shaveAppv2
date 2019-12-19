@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
+    tools:context=".ShaveItemInfoActivity">
+
+    <TextView
+        android:id="@+id/item_info_comments_header_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Comments: "
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/item_info_comments_textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/item_info_comments_textview" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_info_photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_info_comments_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_info_comments_header_textview"
+        app:layout_constraintTop_toBottomOf="@+id/item_info_ratingbar" />
+
+    <RatingBar
+        android:id="@+id/item_info_ratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_info_photo" />
+
+    <TextView
+        android:id="@+id/item_info_lefts_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="How many left:"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_info_comments_textview" />
+
+    <TextView
+        android:id="@+id/item_info_numleft_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/item_info_num_dec_button"
+        app:layout_constraintStart_toEndOf="@+id/item_info_num_dec_button"
+        app:layout_constraintTop_toTopOf="@+id/item_info_num_dec_button"
+        app:layout_constraintEnd_toStartOf="@id/item_info_num_inc_button"/>
+
+    <Button
+        android:id="@+id/item_info_num_dec_button"
+        android:layout_width="82dp"
+        android:layout_height="48dp"
+        android:background="@android:drawable/btn_minus"
+        app:layout_constraintBottom_toBottomOf="@+id/item_info_lefts_header"
+        app:layout_constraintStart_toEndOf="@+id/item_info_lefts_header"
+        app:layout_constraintTop_toTopOf="@+id/item_info_lefts_header"
+        app:layout_constraintEnd_toStartOf="@id/item_info_numleft_textview"/>
+
+    <Button
+        android:id="@+id/item_info_num_inc_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:drawable/btn_plus"
+        app:layout_constraintBottom_toBottomOf="@+id/item_info_numleft_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_info_numleft_textview"
+        app:layout_constraintTop_toTopOf="@+id/item_info_numleft_textview" />
+
+    <Button
+        android:id="@+id/item_info_update_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/rounded_corner_background_blue"
+        android:text="update"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/item_info_delete_button"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/item_info_delete_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/rounded_corner_background_blue"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/item_info_update_button" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

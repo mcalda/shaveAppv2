@@ -15,7 +15,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_create_category.*
-import kotlinx.android.synthetic.main.activity_register.*
 import java.util.*
 
 class CreateCategoryActivity:AppCompatActivity(){
@@ -24,7 +23,7 @@ class CreateCategoryActivity:AppCompatActivity(){
         setContentView(R.layout.activity_create_category)
 
 
-        photo_button_category.setOnClickListener {
+        create_activitiy_selectphoto_button.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent,0)
@@ -46,8 +45,8 @@ class CreateCategoryActivity:AppCompatActivity(){
             Log.d("RegisterActivity","photo was selected")
             selectedPhotoUri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver,selectedPhotoUri)
-            selectphoto_category.setImageBitmap(bitmap)
-            photo_button_category.alpha = 0f
+            create_activity_selectphoto_view.setImageBitmap(bitmap)
+            create_activitiy_selectphoto_button.alpha = 0f
 
         }
         super.onActivityResult(requestCode, resultCode, data)
@@ -66,8 +65,8 @@ class CreateCategoryActivity:AppCompatActivity(){
         }
     }
     private fun saveCategory(categoryImageUrl:String){
-        val name = name_create_category.text.toString()
-        val description = description_create_category.text.toString()
+        val name = create_category_name.text.toString()
+        val description = create_category_description.text.toString()
         if (name.isEmpty()){
             Toast.makeText(this,"Please enter a name!", Toast.LENGTH_SHORT).show()
             return

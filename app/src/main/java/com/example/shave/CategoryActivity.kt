@@ -42,11 +42,13 @@ class CategoryActivity : AppCompatActivity() {
         ref.addListenerForSingleValueEvent(object: ValueEventListener{
 
             override fun onDataChange(p0: DataSnapshot) {
+                val categoryNames = mutableListOf<String>()
                 val adapter = GroupAdapter<GroupieViewHolder>()
                 p0.children.forEach{//it iterates through each children in categories folder of specified user
                     val category:Category? = it.getValue(Category::class.java)
                     if(category!=null){
-                     adapter.add(CategoryItem(category))
+                        adapter.add(CategoryItem(category))
+                        categoryNames.add(category.name)
                     }
                 }
                 adapter.setOnItemClickListener { item, view ->
@@ -55,6 +57,11 @@ class CategoryActivity : AppCompatActivity() {
                     intent.putExtra(CATEGORY_KEY,categoryItem.category.name)
                     startActivity(intent)
 
+                }
+                category_list_merge_button.setOnClickListener {
+                    val intent = Intent(this@CategoryActivity,MergeCategoriesActivity()::class.java)
+                    intent.putExtra(CATEGORY_KEY,categoryNames.joinToString())
+                    startActivity(intent)
                 }
 
                 recyclerview_category.adapter = adapter

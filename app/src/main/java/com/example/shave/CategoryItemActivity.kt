@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -39,6 +40,10 @@ class CategoryItemActivity() : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        activity_category_delete_button.setOnClickListener {
+            deleteCategory(categoryName ?:"")
+        }
+
     }
 
 
@@ -76,6 +81,38 @@ class CategoryItemActivity() : AppCompatActivity() {
 
             }
         })
+    }
+
+    private fun deleteCategory(category:String) {
+        if (category == "") {
+            Toast.makeText(this,"An error happened!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val uid = FirebaseAuth.getInstance().uid ?: ""
+
+        if(uid == ""){
+            Toast.makeText(this,"An error happened!", Toast.LENGTH_SHORT).show()
+            return
+        }
+        val alertDialog = AlertDialog.Builder(this)
+        alertDialog.setMessage("Do you really want to delete this category? All items in this category will also be deleted!")
+        alertDialog.setIcon(R.mipmap.ic_launcher)
+        alertDialog.setPositiveButton("YES"){dialog, which ->
+            val ref = FirebaseDatabase.getInstance().getReference("/users/$uid/categories/$category")
+            ref.setValue(null)
+            Toast.makeText(this,"Successfully deleted!",Toast.LENGTH_SHORT).show()
+            val intent = Intent(this,UserActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            dialog.dismiss()
+        }
+        alertDialog.setNegativeButton("NO"){dialog, _ ->
+
+            dialog.dismiss()
+        }
+
+        alertDialog.show()
     }
 
 }

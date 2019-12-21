@@ -34,7 +34,6 @@ class CreateItemActivity:AppCompatActivity() {
 
         createitems_button.setOnClickListener {
             uploadImageThenSaveCategory(category_name?:"")
-            finish()
         }
     }
 
@@ -100,7 +99,7 @@ class CreateItemActivity:AppCompatActivity() {
                             .addOnSuccessListener {
                                 Log.d("CreateItemActivity","item is succesfully added to firedatabase")
                                 Toast.makeText(applicationContext,"Item is successfully added!",Toast.LENGTH_SHORT).show()
-
+                                finish()
                             }
 
                     }
@@ -116,7 +115,7 @@ class CreateItemActivity:AppCompatActivity() {
             })
 
         }
-
+        
     }
 
 }

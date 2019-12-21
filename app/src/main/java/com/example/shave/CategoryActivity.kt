@@ -79,6 +79,7 @@ class CategoryActivity : AppCompatActivity() {
 class CategoryItem(val category:Category):Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.categoryrow_name.text = category.name
+        Log.d("CategoryActivity",category.name)
         viewHolder.itemView.categoryrow_description.text = category.description
         Picasso.get().load(category.categoryImageUrl).into(viewHolder.itemView.categoryrow_image)
     }

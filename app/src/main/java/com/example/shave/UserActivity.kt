@@ -35,6 +35,10 @@ class UserActivity() : AppCompatActivity() {
             val intent = Intent(this,CategoryActivity::class.java)
             startActivity(intent)
         }
+        mysotd_button_user.setOnClickListener {
+            val intent = Intent(this,mySOTDActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun verifyUserIsLoggedIn() {

@@ -54,21 +54,22 @@
         android:id="@+id/to_register_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="Don't you have an account?"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="@+id/button_login"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/button_login"
-        app:layout_constraintTop_toBottomOf="@+id/button_login" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_login_password_reset_text" />
 
     <TextView
         android:id="@+id/activity_login_password_reset_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="Forgot your password? Reset with your e-mail."
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/to_register_text" />
+        app:layout_constraintTop_toBottomOf="@+id/button_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -21,10 +22,7 @@ class UserActivity() : AppCompatActivity() {
         fetchUser()
 
         logout_button_user.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this,RegisterActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
+            logout()
         }
 
         newcategory_button_user.setOnClickListener {
@@ -68,4 +66,23 @@ class UserActivity() : AppCompatActivity() {
 
     }
 
+    private fun logout() {
+        val alertDialog = AlertDialog.Builder(this)
+        alertDialog.setMessage("Do you really want to logout?")
+        alertDialog.setIcon(R.mipmap.ic_launcher)
+
+        alertDialog.setPositiveButton("YES"){dialog, which ->
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this,RegisterActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            dialog.dismiss()
+        }
+        alertDialog.setNegativeButton("NO"){dialog, _ ->
+
+            dialog.dismiss()
+        }
+
+        alertDialog.show()
+    }
 }

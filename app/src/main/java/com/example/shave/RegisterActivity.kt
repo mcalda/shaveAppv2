@@ -30,8 +30,7 @@ class RegisterActivity : AppCompatActivity() {
         already_have_account_register.setOnClickListener {
             Log.d("MainActivity","try to show login activity")
             //start login activity
-            val intent = Intent(this,LoginActivity::class.java)
-            startActivity(intent)
+            finish()
 
         }
         select_photo_button.setOnClickListener {
@@ -87,8 +86,7 @@ class RegisterActivity : AppCompatActivity() {
                     Log.d("MainActivity", "createUserWithEmail:success")
                     Toast.makeText(baseContext, "You registered successfully!",
                         Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this,LoginActivity::class.java)
-                    startActivity(intent)// send it to login page
+                    finish()
 
                     uploadImageToFirebaseStorage()
                 } else {

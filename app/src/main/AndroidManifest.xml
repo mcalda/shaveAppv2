@@ -9,24 +9,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PasswordResetActivity"></activity>
-        <activity android:name=".mySOTDActivity" />
-        <activity android:name=".SaveMySOTDActivity" />
-        <activity android:name=".MergeCategoriesActivity" />
-        <activity android:name=".ShaveItemInfoActivity" />
-        <activity android:name=".CategoryItemActivity" />
-        <activity android:name=".CategoryActivity" />
-        <activity android:name=".UserActivity">
+        <activity android:name=".PasswordResetActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".mySOTDActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SaveMySOTDActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".MergeCategoriesActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ShaveItemInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".CategoryItemActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".CategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".UserActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".CreateCategoryActivity" />
-        <activity android:name=".CreateItemActivity" />
+
+        <activity android:name=".CreateCategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".CreateItemActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -54,6 +54,10 @@ class LoginActivity :AppCompatActivity() {
         to_register_text.setOnClickListener {
             finish()
         }
+        activity_login_password_reset_text.setOnClickListener {
+            val intent = Intent(this,PasswordResetActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

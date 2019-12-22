@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -55,13 +56,22 @@ class RegisterActivity : AppCompatActivity() {
     private fun performRegister() {
         val email = email_register.text.toString()
         val password = password_register.text.toString()
+        val username = username_register.text.toString()
 
-        if(email.isEmpty()) {
-            Toast.makeText(this,"Please enter an e-mail address",Toast.LENGTH_SHORT).show()
+        if(username.isEmpty()){
+            Toast.makeText(this,"Please enter a username!",Toast.LENGTH_SHORT).show()
+            return
+        }
+        else if(email.isEmpty() || !email.isEmailValid()) {
+            Toast.makeText(this,"Please enter a valid e-mail address!",Toast.LENGTH_SHORT).show()
             return
         }
         else if(password.isEmpty()) {
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Please enter a password!",Toast.LENGTH_SHORT).show()
+            return
+        }
+        else if(selectedPhotoUri == null){
+            Toast.makeText(this,"Please select a photo!",Toast.LENGTH_SHORT).show()
             return
         }
         Log.d("MainActivity","Email is: "+ email)
@@ -77,7 +87,6 @@ class RegisterActivity : AppCompatActivity() {
                     Log.d("MainActivity", "createUserWithEmail:success")
                     Toast.makeText(baseContext, "You registered successfully!",
                         Toast.LENGTH_SHORT).show()
-                    val user = auth.currentUser
                     val intent = Intent(this,LoginActivity::class.java)
                     startActivity(intent)// send it to login page
 
@@ -115,6 +124,9 @@ class RegisterActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 Log.d("RegisterActivity","user is succesfully added to firedatabase")
             }
+    }
+    fun String.isEmailValid(): Boolean {
+        return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
     }
 
 

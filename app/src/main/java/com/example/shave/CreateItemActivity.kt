@@ -53,20 +53,6 @@ class CreateItemActivity:AppCompatActivity() {
 
     private fun uploadImageThenSaveCategory(category_name:String) {
         if(selectedPhotoUri!= null){
-            val filename= UUID.randomUUID().toString()
-            val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
-            ref.putFile(selectedPhotoUri!!)
-                .addOnSuccessListener {
-                    ref.downloadUrl.addOnSuccessListener {
-                        saveItemToDatabase(it.toString(),category_name )
-                    }
-                }
-        }
-    }
-
-
-    private fun saveItemToDatabase(imageUrl:String, categoryName:String){
-        if(categoryName!=""){
             val name = item_create_name.text.toString()
             val rating = create_item_rating_bar.rating
             val numOfItems = createitem_numberofitems_text.text.toString()
@@ -87,6 +73,28 @@ class CreateItemActivity:AppCompatActivity() {
                 Toast.makeText(this,"Please enter your comments!", Toast.LENGTH_SHORT).show()
                 return
             }
+            val filename= UUID.randomUUID().toString()
+            val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
+            ref.putFile(selectedPhotoUri!!)
+                .addOnSuccessListener {
+                    ref.downloadUrl.addOnSuccessListener {
+                        saveItemToDatabase(it.toString(),category_name )
+                    }
+                }
+        }
+        else{
+            Toast.makeText(this,"Please select a photo!",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+    private fun saveItemToDatabase(imageUrl:String, categoryName:String){
+        if(categoryName!=""){
+            val name = item_create_name.text.toString()
+            val rating = create_item_rating_bar.rating
+            val numOfItems = createitem_numberofitems_text.text.toString()
+            val comments = item_create_comments.text.toString()
+
             val uid = FirebaseAuth.getInstance().uid ?: ""
             val ref = FirebaseDatabase.getInstance().getReference("/users/$uid/categories/$categoryName/items/$name")
 

@@ -54,6 +54,18 @@ class CreateCategoryActivity:AppCompatActivity(){
 
     private fun uploadImageThenSaveCategory() {
         if(selectedPhotoUri!= null){
+            val name = create_category_name.text.toString()
+            val description = create_category_description.text.toString()
+            if (name.isEmpty()){
+                Toast.makeText(this,"Please enter a name!", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+
+            if(description.isEmpty()){
+                Toast.makeText(this,"Please enter a description!",Toast.LENGTH_SHORT).show()
+                return
+            }
             val filename= UUID.randomUUID().toString()
             val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
             ref.putFile(selectedPhotoUri!!)
@@ -63,20 +75,13 @@ class CreateCategoryActivity:AppCompatActivity(){
                     }
                 }
         }
+        else{
+            Toast.makeText(this,"Please select a photo!",Toast.LENGTH_SHORT).show()
+        }
     }
     private fun saveCategory(categoryImageUrl:String){
         val name = create_category_name.text.toString()
         val description = create_category_description.text.toString()
-        if (name.isEmpty()){
-            Toast.makeText(this,"Please enter a name!", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-
-        if(description.isEmpty()){
-            Toast.makeText(this,"Please enter a description!",Toast.LENGTH_SHORT).show()
-            return
-        }
         val uid = FirebaseAuth.getInstance().uid ?: ""
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid/categories/$name")
 

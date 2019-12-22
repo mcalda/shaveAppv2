@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mySOTDActivity"></activity>
+        <activity android:name=".PasswordResetActivity"></activity>
+        <activity android:name=".mySOTDActivity" />
         <activity android:name=".SaveMySOTDActivity" />
         <activity android:name=".MergeCategoriesActivity" />
         <activity android:name=".ShaveItemInfoActivity" />
